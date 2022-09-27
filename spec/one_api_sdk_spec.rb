@@ -23,7 +23,7 @@ RSpec.describe OneApiSdk::Client do
   let(:quote_id) {'5cd96e05de30eff6ebcce7e9'}
   let(:chapter_id) {'6091b6d6d58360f988133b8b'}
   # TODO(REED): change this out once all cassettes are recorded
-  let(:client) { OneApiSdk::Client.new('tHkg5k1899QIRbekSYWM')}
+  let(:client) { OneApiSdk::Client.new('fake')}
 
   describe "Book Methods" do
     it "gets all books without query parameters" do
@@ -82,7 +82,7 @@ RSpec.describe OneApiSdk::Client do
     it "gets a single movie's quotes" do
       VCR.use_cassette('single_movie_quote') do
         response = client.movie_quotes(return_of_the_king_movie_id)
-        expect(response["docs"].length).to be 1
+        expect(response["docs"].length).to be 873
       end
     end
   end
@@ -98,7 +98,6 @@ RSpec.describe OneApiSdk::Client do
     it "gets a single quote" do
       VCR.use_cassette('single_quote') do
         response = client.quote(quote_id)
-        puts response["docs"]
         expect(response["docs"].length).to be 1
       end
     end
@@ -130,7 +129,7 @@ RSpec.describe OneApiSdk::Client do
       VCR.use_cassette('single_chapter') do
         response = client.chapter(chapter_id)
         expect(response["docs"].length).to be 1
-        expect(response["docs"].first["chapterName"]).to be "A Long-expected Party"
+        expect(response["docs"].first["chapterName"]).to eql("A Long-expected Party")
       end
     end
   end
