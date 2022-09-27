@@ -22,7 +22,6 @@ RSpec.describe OneApiSdk::Client do
   let(:return_of_the_king_movie_id) {'5cd95395de30eff6ebccde5d'}
   let(:quote_id) {'5cd96e05de30eff6ebcce7e9'}
   let(:chapter_id) {'6091b6d6d58360f988133b8b'}
-  # TODO(REED): change this out once all cassettes are recorded
   let(:client) { OneApiSdk::Client.new('fake')}
 
   describe "Book Methods" do

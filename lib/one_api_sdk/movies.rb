@@ -4,12 +4,11 @@ module OneApiSdk
   class Client
     module Movies
       # MOVIE METHODS
-      # TODO: CHECK RETURN VALUES
 
       # List of all "The Lord of the Rings" movies, including the "The Lord of the Rings" and the "The Hobbit" movies.
       # @param query_params [String] the query parameters you want to include in your search
       #  IE: "?sort=name:asc"
-      # @return [Array<Hash>] An array of movies
+      # @return [Hash] The returned movie object
       def movies(query_params="")
         response = call_with_token("#{Constants::MOVIE_BASE_PATH}#{query_params}")
         JSON.parse(response.body)

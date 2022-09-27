@@ -4,10 +4,9 @@ module OneApiSdk
   class Client
     module Books
       # BOOK METHODS
-      # TODO: CHECK RETURN VALUES
 
       # List of all "The Lord of the Rings" books
-      # @return [Array<Hash>] An array of books
+      # @return [Hash] The returned book object
       # @param query_params [String] the query parameters you want to include in your search
       #  IE: "?name=The Two Towers"
       def books(query_params="")

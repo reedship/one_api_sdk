@@ -4,12 +4,11 @@ module OneApiSdk
   class Client
     module Characters
       # CHARACTER METHODS
-      # TODO: CHECK RETURN VALUES
 
       # List of characters including metadata like name, gender, realm, race and more
       # @param query_params [String] the query parameters you want to include in your search
       #  IE: "?sort=name:asc"
-      # @return [Array<Hash>] An array of characters
+      # @return [Hash] The returned character object
       def characters(query_params="")
         response = call_with_token("#{Constants::CHARACTER_BASE_PATH}#{query_params}")
         JSON.parse(response.body)
