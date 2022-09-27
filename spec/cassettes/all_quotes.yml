@@ -12,7 +12,7 @@ http_interactions:
       Content:
       - application/json
       Authorization:
-      - Bearer tHkg5k1899QIRbekSYWM
+      - Bearer <FAKE_KEY>
       Connection:
       - close
       Host:

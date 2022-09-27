@@ -31,7 +31,7 @@ module OneApiSdk
       #  IE: "?limit=50"
       # @return [Hash] The returned movie quotes object
       def movie_quotes(id,query_params="")
-        response = call_with_token("#{Constants::MOVIE_BASE_PATH}/#{id}/chapter#{query_params}")
+        response = call_with_token("#{Constants::MOVIE_BASE_PATH}/#{id}/quote#{query_params}")
         JSON.parse(response.body)
       end
     end

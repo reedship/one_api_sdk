@@ -21,7 +21,7 @@ RSpec.describe OneApiSdk::Client do
   let(:fellowship_id) {'5cf5805fb53e011a64671582'}
   let(:return_of_the_king_movie_id) {'5cd95395de30eff6ebccde5d'}
   let(:quote_id) {'5cd96e05de30eff6ebcce7e9'}
-  let(:chapter_id) {''}
+  let(:chapter_id) {'6091b6d6d58360f988133b8b'}
   # TODO(REED): change this out once all cassettes are recorded
   let(:client) { OneApiSdk::Client.new('tHkg5k1899QIRbekSYWM')}
 
@@ -105,8 +105,8 @@ RSpec.describe OneApiSdk::Client do
 
     it "gets all quotes by a single character" do
       VCR.use_cassette('single_character_quotes') do
-        response.client.character_quotes(anadel_id)
-        expect(response["docs"].length).to be 1
+        response = client.character_quotes(adanel_id)
+        expect(response["docs"].length).to be 0 # adanel doesn't have any lines
       end
     end
   end
@@ -115,14 +115,14 @@ RSpec.describe OneApiSdk::Client do
     it "gets all chapters" do
       VCR.use_cassette('all_chapters') do
         response = client.chapters()
-        expect(response["docs"].length).to be 8000
+        expect(response["docs"].length).to be 62
       end
     end
 
     it "gets all chapters for a single book" do
       VCR.use_cassette('fellowship_chapters') do
         response = client.book_chapters(fellowship_id)
-        expect(response["docs"].length).to be 1
+        expect(response["docs"].length).to be 22
       end
     end
 
@@ -130,6 +130,7 @@ RSpec.describe OneApiSdk::Client do
       VCR.use_cassette('single_chapter') do
         response = client.chapter(chapter_id)
         expect(response["docs"].length).to be 1
+        expect(response["docs"].first["chapterName"]).to be "A Long-expected Party"
       end
     end
   end
