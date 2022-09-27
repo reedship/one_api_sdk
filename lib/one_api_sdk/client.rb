@@ -27,8 +27,9 @@ module OneApiSdk
     attr_accessor :base_api_url
 
     # Initialize using passed in access token
-    # @param
-    def initialize(access_token=ENV['access_token'])
+    # @param access_token [String] The access token for The One Api
+    # @see https://the-one-api.dev/account
+    def initialize(access_token='')
       @access_token = access_token
       @base_api_url = Constants::API_BASE_PATH
       @http ||= HTTP::Client.new

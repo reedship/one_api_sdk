@@ -17,7 +17,8 @@ module OneApiSdk
 
       # Request one specific book chapter
       # @param id [String] the unique id of the chapter
-      # @param options [Array<String>] The query parameters you want passed into the request.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Hash] The returned chapter object
       def chapter(id,query_params="")
         response = call_with_token("#{Constants::CHAPTER_BASE_PATH}/#{id}#{query_params}")
