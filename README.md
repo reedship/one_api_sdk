@@ -1,6 +1,8 @@
 # OneApiSdk
 
-This SDK allows for you to access The One API, an API for The Lord of the Rings, from within your ruby code. You can find the rubydoc documentation HERE. TODO: PUT DOC LINK
+This SDK allows for you to access The One API, an API for The Lord of the Rings, from within your ruby code. See the [rubydoc documentation](https://rubydoc.info/gems/one_api_sdk/OneApiSdk) for information on available methods.
+
+[RubyGems Link](https://rubygems.org/gems/one_api_sdk).
 
 ## Installation
 
@@ -31,6 +33,7 @@ To instantiate the SDK, pass the Access Token retrieved from https://the-one-api
 	limited_result = client.books('?limit=2')
 ```
 
+See all available methods on the [rubydoc documentation](https://rubydoc.info/gems/one_api_sdk/OneApiSdk).
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
