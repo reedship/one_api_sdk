@@ -7,28 +7,31 @@ module OneApiSdk
       # TODO: CHECK RETURN VALUES
 
       # List of characters including metadata like name, gender, realm, race and more
-      # @param options [Array<String>] The query parameters you want passed into the request, defaulting to an empty array.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Array<Hash>] An array of characters
-      def characters(options=[])
-        response = call_with_token(Constants::CHARACTER_BASE_PATH)
+      def characters(query_params="")
+        response = call_with_token("#{Constants::CHARACTER_BASE_PATH}#{query_params}")
         JSON.parse(response.body)
       end
 
       # Request one specific character
       # @param id [String] the unique id of the character
-      # @param options [Array<String>] The query parameters you want passed into the request.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Hash] The returned character object
-      def character(id,options=[])
-        response = call_with_token("#{Constants::CHARACTER_BASE_PATH}/#{id}", options)
+      def character(id,query_params="")
+        response = call_with_token("#{Constants::CHARACTER_BASE_PATH}/#{id}#{query_params}")
         JSON.parse(response.body)
       end
 
       # Request all movie quotes for one specific character (only working for the LotR trilogy)
       # @param id [String] the unique id of the character
-      # @param options [Array<String>] The query parameters you want passed into the request.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Hash] The returned character quotes object
-      def character_quotes(id,options=[])
-        response = call_with_token("#{Constants::CHARACTER_BASE_PATH}/#{id}/chapter", options)
+      def character_quotes(id, query_params="")
+        response = call_with_token("#{Constants::CHARACTER_BASE_PATH}/#{id}/quote#{query_params}")
         JSON.parse(response.body)
       end
     end

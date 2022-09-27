@@ -7,10 +7,11 @@ module OneApiSdk
       # TODO: CHECK RETURN VALUES
 
       # List all book chapters
-      # @param options [Array<String>] The query parameters you want passed into the request, defaulting to an empty array.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Array<Hash>] An array of chapters
-      def chapters(options=[])
-        response = call_with_token(Constants::CHAPTER_BASE_PATH, options)
+      def chapters(query_params="")
+        response = call_with_token("#{Constants::CHAPTER_BASE_PATH}#{query_params}")
         JSON.parse(response.body)
       end
 
@@ -18,8 +19,8 @@ module OneApiSdk
       # @param id [String] the unique id of the chapter
       # @param options [Array<String>] The query parameters you want passed into the request.
       # @return [Hash] The returned chapter object
-      def chapter(id,options=[])
-        response = call_with_token("#{Constants::CHAPTER_BASE_PATH}/#{id}", options)
+      def chapter(id,query_params="")
+        response = call_with_token("#{Constants::CHAPTER_BASE_PATH}/#{id}#{query_params}")
         JSON.parse(response.body)
       end
     end

@@ -7,19 +7,21 @@ module OneApiSdk
       # TODO: CHECK RETURN VALUES
 
       # List all movie quotes
-      # @param options [Array<String>] The query parameters you want passed into the request, defaulting to an empty array.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Array<Hash>] An array of quotes
-      def quotes(options=[])
-        response = call_with_token(Constants::QUOTE_BASE_PATH, options)
+      def quotes(query_params="")
+        response = call_with_token("#{Constants::QUOTE_BASE_PATH}#{query_params}")
         JSON.parse(response.body)
       end
 
       # Request one specific movie quote
       # @param id [String] the unique id of the quote
-      # @param options [Array<String>] The query parameters you want passed into the request.
+      # @param query_params [String] the query parameters you want to include in your search
+      #  IE: "?sort=name:asc"
       # @return [Hash] The returned quote object
-      def quote(id,options=[])
-        response = call_with_token("#{Constants::QUOTE_BASE_PATH}/#{id}", options)
+      def quote(id,query_params="")
+        response = call_with_token("#{Constants::QUOTE_BASE_PATH}/#{id}#{query_params}")
         JSON.parse(response.body)
       end
     end

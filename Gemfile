@@ -5,3 +5,7 @@ gemspec
 
 gem "rake", "~> 12.0"
 gem "rspec", "~> 3.0"
+
+gem "vcr", "~> 6.1"
+
+gem "webmock", "~> 3.18"
