@@ -4,23 +4,23 @@ require 'http'
 require 'json'
 require 'erb'
 
-require 'oneapisdk/book'
-require 'oneapisdk/chapter'
-require 'oneapisdk/character'
-require 'oneapisdk/constants'
-require 'oneapisdk/movie'
-require 'oneapisdk/quote'
+require 'one_api_sdk/books'
+require 'one_api_sdk/chapters'
+require 'one_api_sdk/characters'
+require 'one_api_sdk/constants'
+require 'one_api_sdk/movies'
+require 'one_api_sdk/quotes'
 
 
 
 module OneApiSdk
   class Client
-    include Book
-    include Chapter
-    include Character
+    include Books
+    include Chapters
+    include Characters
     include Constants
-    include Movie
-    include Quote
+    include Movies
+    include Quotes
 
     attr_accessor :access_token
 

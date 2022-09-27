@@ -2,7 +2,7 @@
 
 module OneApiSdk
   class Client
-    module Chapter
+    module Chapters
       # CHAPTER METHODS
       # TODO: CHECK RETURN VALUES
 

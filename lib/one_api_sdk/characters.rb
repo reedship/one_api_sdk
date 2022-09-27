@@ -2,7 +2,7 @@
 
 module OneApiSdk
   class Client
-    module Character
+    module Characters
       # CHARACTER METHODS
       # TODO: CHECK RETURN VALUES
 

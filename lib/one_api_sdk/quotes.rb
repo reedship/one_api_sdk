@@ -2,7 +2,7 @@
 
 module OneApiSdk
   class Client
-    module Quote
+    module Quotes
       # QUOTE METHODS
       # TODO: CHECK RETURN VALUES
 

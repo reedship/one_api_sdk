@@ -2,7 +2,7 @@
 
 module OneApiSdk
   class Client
-    module Movie
+    module Movies
       # MOVIE METHODS
       # TODO: CHECK RETURN VALUES
 

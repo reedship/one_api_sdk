@@ -2,7 +2,7 @@
 
 module OneApiSdk
   class Client
-    module Book
+    module Books
       # BOOK METHODS
       # TODO: CHECK RETURN VALUES
 
